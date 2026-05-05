@@ -1,4 +1,4 @@
-// 🟢 ALL VARIABLES DIRECTLY HERE (NO IMPORTS, NO ERRORS)
+// ALL VARIABLES
 $china-red: #c41e3a;
 $china-gold: #d4af37;
 $china-black: #0a0a0a;
@@ -52,7 +52,7 @@ p {
   border-radius: 7px;
 }
 
-// ✨ CUSTOM SCROLLBAR (LIGHT + DARK MODE)
+// CUSTOM SCROLLBAR (LIGHT + DARK MODE)
 // WebKit: Chrome, Edge, Safari
 ::-webkit-scrollbar {
   width: 7px;
@@ -97,10 +97,6 @@ p {
   scrollbar-color: $china-gold #121212;
 }
 
-// ------------------------------
-// YOUR EXISTING STYLES BELOW
-// ------------------------------
-
 body {
   font-family:
     'Inter',
@@ -143,6 +139,12 @@ body {
 }
 .text-center {
   text-align: center;
+}
+
+// Utility
+
+.no-cursor {
+  cursor: default;
 }
 
 // ANIMATIONS

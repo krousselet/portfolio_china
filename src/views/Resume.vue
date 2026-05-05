@@ -8,14 +8,32 @@
         <div class="profile-card" data-slide-in>
           <div class="avatar"></div>
           <div class="profile-text">
-            <h1 class="heading-primary jump-text">Kevin Rousselet</h1>
-            <p class="subheading tremble-text">
+            <h1 class="heading-primary jump-text no-cursor">Kevin Rousselet</h1>
+            <p class="subheading tremble-text no-cursor">
               {{ $t('resume.subheading') }}
             </p>
             <div class="contact-details">
-              <p>adamrodwebdev@163.com</p>
-              <p>adamrodwebdev@gmail.com</p>
-              <p>Hefei, China</p>
+              <p class="no-cursor">adamrodwebdev@163.com</p>
+              <p class="no-cursor">adamrodwebdev@gmail.com</p>
+              <p class="no-cursor">Hefei, China</p>
+              <div class="logo-container tremble-text">
+                <!-- INSTAGRAM -->
+                <a
+                  href="https://www.instagram.com/adamrod.alternativearts/?hl=fr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="../../public/images/instagram.png" alt="Instagram logo" />
+                </a>
+                <!-- YOUTUBE -->
+                <a
+                  href="https://www.youtube.com/@adamrod-alternativearts"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="../../public/images/youtube.png" alt="YouTube logo" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -24,13 +42,13 @@
       <!-- PANEL 2 -->
       <section class="panel" data-panel>
         <div class="card card-expertise" data-slide-in>
-          <h2 class="heading-secondary jump-text">{{ $t('resume.expertiseTitle') }}</h2>
+          <h2 class="heading-secondary jump-text no-cursor">{{ $t('resume.expertiseTitle') }}</h2>
           <div class="tags">
-            <div class="tag" data-slide-item v-for="s in expertise" :key="s">{{ s }}</div>
+            <div class="tag no-cursor" data-slide-item v-for="s in expertise" :key="s">{{ s }}</div>
           </div>
         </div>
 
-        <div class="card card-languages" data-slide-in>
+        <div class="card card-languages no-cursor" data-slide-in>
           <h2 class="heading-secondary jump-text">{{ $t('resume.languagesTitle') }}</h2>
           <div class="languages">
             <div class="lang" data-slide-item v-for="l in languages" :key="l.name">
@@ -44,13 +62,13 @@
       <!-- PANEL 3 -->
       <section class="panel" data-panel>
         <div class="card card-experience" data-slide-in>
-          <h2 class="heading-secondary jump-text">{{ $t('resume.experienceTitle') }}</h2>
+          <h2 class="heading-secondary jump-text no-cursor">{{ $t('resume.experienceTitle') }}</h2>
           <div class="timeline">
             <div class="tl-item" data-slide-item v-for="(x, i) in experience" :key="i">
-              <div class="year">{{ x.year }}</div>
-              <div class="text">
-                <h3>{{ $t(x.titleKey) }}</h3>
-                <p>{{ $t(x.descKey) }}</p>
+              <div class="year no-cursor">{{ x.year }}</div>
+              <div class="text no-cursor">
+                <h3 class="no-cursor">{{ $t(x.titleKey) }}</h3>
+                <p class="no-cursor">{{ $t(x.descKey) }}</p>
               </div>
             </div>
           </div>
@@ -60,13 +78,13 @@
       <!-- PANEL 4 -->
       <section class="panel" data-panel>
         <div class="card card-education" data-slide-in>
-          <h2 class="heading-secondary jump-text">{{ $t('resume.educationTitle') }}</h2>
+          <h2 class="heading-secondary jump-text no-cursor">{{ $t('resume.educationTitle') }}</h2>
           <div class="timeline">
             <div class="tl-item" data-slide-item v-for="(x, i) in education" :key="i">
               <div class="year">{{ x.year }}</div>
               <div class="text">
-                <h3>{{ $t(x.titleKey) }}</h3>
-                <p>{{ $t(x.descKey) }}</p>
+                <h3 class="no-cursor">{{ $t(x.titleKey) }}</h3>
+                <p class="no-cursor">{{ $t(x.descKey) }}</p>
               </div>
             </div>
           </div>
@@ -76,9 +94,9 @@
       <!-- PANEL 5 -->
       <section class="panel" data-panel>
         <div class="card card-extra" data-slide-in>
-          <h2 class="heading-secondary jump-text">{{ $t('resume.extraTitle') }}</h2>
+          <h2 class="heading-secondary jump-text no-cursor">{{ $t('resume.extraTitle') }}</h2>
           <div class="tags">
-            <div class="tag" data-slide-item v-for="s in extra" :key="s">{{ s }}</div>
+            <div class="tag no-cursor" data-slide-item v-for="s in extra" :key="s">{{ s }}</div>
           </div>
         </div>
       </section>
@@ -354,6 +372,12 @@ $white: #fff;
 .contact-details {
   font-size: 0.95rem;
   opacity: 0.75;
+
+  .logo-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 }
 .heading-secondary {
   font-size: 1.5rem;

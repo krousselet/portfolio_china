@@ -4,13 +4,13 @@
 
     <div class="hero-content" :style="heroStyles">
       <!-- TYPEWRITER WITH CURSOR -->
-      <h1 class="main-title" data-reveal="title">
-        <span class="typewriter">{{ typedText }}</span>
-        <span class="cursor blink">_</span>
+      <h1 class="main-title no-cursor" data-reveal="title">
+        <span class="typewriter no-cursor">{{ typedText }}</span>
+        <span class="cursor blink no-cursor">_</span>
       </h1>
 
       <!-- JUMPING LETTERS MOTTO -->
-      <p class="motto" data-reveal="motto">
+      <p class="motto no-cursor" data-reveal="motto">
         <span
           class="letter"
           v-for="(char, i) in mottoText"
@@ -21,7 +21,7 @@
         </span>
       </p>
 
-      <p class="description" data-reveal="desc">
+      <p class="description no-cursor" data-reveal="desc">
         {{ $t('home.description') }}
       </p>
     </div>

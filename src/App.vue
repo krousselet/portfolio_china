@@ -2,7 +2,7 @@
   <div>
     <Navbar />
     <main>
-      <!-- 🌊 ROUTER WITH APP-WIDE WASH TRANSITION -->
+      <!-- ROUTER WITH APP-WIDE WASH TRANSITION -->
       <router-view v-slot="{ Component }">
         <transition name="page-wash" mode="out-in">
           <component :is="Component" :key="$route.fullPath" />
@@ -17,7 +17,7 @@ import Navbar from '@/components/Navbar.vue'
 </script>
 
 <style lang="scss">
-// 🌞 LIGHT MODE (DEFAULT)
+//  LIGHT MODE (DEFAULT)
 html,
 body,
 p,
@@ -31,7 +31,7 @@ h1 {
     color 0.3s ease;
 }
 
-// 🌙 DARK MODE
+// DARK MODE
 html.dark-mode,
 html.dark-mode body,
 html.dark-mode p,
@@ -61,7 +61,7 @@ html.dark-mode .date {
   color: #d4af37 !important;
 }
 
-// 🌊 GLOBAL APP-WIDE PAGE WASH TRANSITION (router-based)
+// GLOBAL APP-WIDE PAGE WASH TRANSITION (router-based)
 .page-wash-enter-active,
 .page-wash-leave-active {
   transition: all 0.15s cubic-bezier(0.25, 1, 0.5, 1);

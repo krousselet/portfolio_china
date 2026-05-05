@@ -1,7 +1,7 @@
 <template>
   <section class="projects min-h-screen pt-24 py-16">
     <div class="container mx-auto px-4">
-      <h2 class="section-title">{{ $t('projects.title') }}</h2>
+      <h2 class="section-title no-cursor">{{ $t('projects.title') }}</h2>
 
       <Swiper
         :modules="[Navigation, Pagination]"
@@ -17,8 +17,8 @@
       >
         <SwiperSlide v-for="project in projects" :key="project.id">
           <div class="card project-card">
-            <h3>{{ $t(project.name) }}</h3>
-            <p>{{ $t(project.desc) }}</p>
+            <h3 class="no-cursor">{{ $t(project.name) }}</h3>
+            <p class="no-cursor">{{ $t(project.desc) }}</p>
 
             <a :href="project.link1" target="_blank" class="project-link mt-3 block">
               {{ $t(project.anchor1) }}
@@ -118,8 +118,6 @@ $white: #ffffff;
     opacity: 0.8;
     margin-bottom: 1rem;
     line-height: 1.5;
-    padding: 1rem;
-    border-radius: 7px;
   }
 
   .tech {

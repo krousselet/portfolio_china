@@ -3,8 +3,10 @@
     <div class="container max-w-6xl mx-auto">
       <!-- Title -->
       <div class="text-center mb-12" data-reveal>
-        <h2 class="section-title jumbo-title jump-text">{{ $t('contact.title') }}</h2>
-        <p class="sub-title tremble-text" data-stagger>{{ $t('contact.subtitle') }}</p>
+        <h2 class="section-title jumbo-title jump-text no-cursor">{{ $t('contact.title') }}</h2>
+        <p class="sub-title tremble-text no-cursor" data-stagger>
+          {{ $t('contact.subtitle') }}
+        </p>
       </div>
 
       <!-- Contact Grid -->

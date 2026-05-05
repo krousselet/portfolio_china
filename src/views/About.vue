@@ -4,19 +4,23 @@
       <div class="horizontal-track">
         <!-- TITLE CARD -->
         <div class="card card-large" data-animate>
-          <h2 class="jumbo-title" data-stagger>{{ $t('about.title') }}</h2>
+          <h2 class="jumbo-title no-cursor" data-stagger>{{ $t('about.title') }}</h2>
         </div>
 
         <!-- CARD 1 -->
         <div class="card" data-animate>
-          <h3 class="jump-text" data-stagger>{{ $t('about.myself') }}</h3>
-          <p class="tremble-text text-slide-up" data-stagger>{{ $t('about.myselfDesc') }}</p>
+          <h3 class="jump-text no-cursor" data-stagger>{{ $t('about.myself') }}</h3>
+          <p class="tremble-text text-slide-up no-cursor" data-stagger>
+            {{ $t('about.myselfDesc') }}
+          </p>
         </div>
 
         <!-- CARD 2 -->
         <div class="card" data-animate>
-          <h3 class="jump-text" data-stagger>{{ $t('about.webDev') }}</h3>
-          <p class="tremble-text text-slide-up" data-stagger>{{ $t('about.webDevDesc') }}</p>
+          <h3 class="jump-text no-cursor" data-stagger>{{ $t('about.webDev') }}</h3>
+          <p class="tremble-text text-slide-up no-cursor" data-stagger>
+            {{ $t('about.webDevDesc') }}
+          </p>
           <div class="skills-grid">
             <div v-for="skill in skillsWebDev" class="skill-bubble" data-stagger :key="skill">
               {{ skill }}
@@ -26,8 +30,10 @@
 
         <!-- CARD 3 -->
         <div class="card" data-animate>
-          <h3 class="jump-text" data-stagger>{{ $t('about.writer') }}</h3>
-          <p class="tremble-text text-slide-up" data-stagger>{{ $t('about.writerDesc') }}</p>
+          <h3 class="jump-text no-cursor" data-stagger>{{ $t('about.writer') }}</h3>
+          <p class="tremble-text text-slide-up no-cursor" data-stagger>
+            {{ $t('about.writerDesc') }}
+          </p>
           <div class="skills-grid">
             <div v-for="skill in skillsArt" class="skill-bubble" data-stagger :key="skill">
               {{ skill }}
@@ -37,8 +43,10 @@
 
         <!-- CARD 4 -->
         <div class="card" data-animate>
-          <h3 class="jump-text" data-stagger>{{ $t('about.flight') }}</h3>
-          <p class="tremble-text text-slide-up" data-stagger>{{ $t('about.flightDesc') }}</p>
+          <h3 class="jump-text no-cursor" data-stagger>{{ $t('about.flight') }}</h3>
+          <p class="tremble-text text-slide-up no-cursor" data-stagger>
+            {{ $t('about.flightDesc') }}
+          </p>
           <div class="skills-grid">
             <div v-for="skill in skillsCca" class="skill-bubble" data-stagger :key="skill">
               {{ skill }}
@@ -48,8 +56,10 @@
 
         <!-- CARD 5 -->
         <div class="card" data-animate>
-          <h3 class="jump-text" data-stagger>{{ $t('about.introspection') }}</h3>
-          <p class="tremble-text text-slide-up" data-stagger>{{ $t('about.introspectionDesc') }}</p>
+          <h3 class="jump-text no-cursor" data-stagger>{{ $t('about.introspection') }}</h3>
+          <p class="tremble-text text-slide-up no-cursor" data-stagger>
+            {{ $t('about.introspectionDesc') }}
+          </p>
           <div class="skills-grid">
             <div v-for="skill in skillsLanguages" class="skill-bubble" data-stagger :key="skill">
               {{ skill }}
