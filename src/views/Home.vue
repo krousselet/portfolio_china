@@ -24,10 +24,6 @@
       <p class="description" data-reveal="desc">
         {{ $t('home.description') }}
       </p>
-
-      <a href="projects" class="btn-primary" data-reveal="btn">
-        {{ $t('home.ctaButton') }}
-      </a>
     </div>
 
     <div class="scroll-indicator" :style="indicatorStyles">
