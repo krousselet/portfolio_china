@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "projects": "Proyek",
+    "about": "Tentang",
+    "resume": "Resume",
+    "contact": "Kontak"
+  },
+  "home": {
+    "typewriterTitle": "Halo, saya Kevin\nPengembang Full-Stack",
+    "motto": "Dimana sejarah bertemu masa depan. Mari bermimpi besar bersama",
+    "description": "Membangun pengalaman web yang rapi, modern dan skalabel.",
+    "ctaButton": "Lihat Karya Saya"
+  },
+  "projects": {
+    "title": "Proyek Saya",
+    "memoryGameName": "Permainan Memori",
+    "memoryGameDesc": "Permainan kartu interaktif dengan animasi",
+    "memoryGameBtn": "Lihat permainan memori",
+    "movieQuizName": "Kuis Film",
+    "movieQuizDesc": "Kuis pengetahuan film dengan sistem skor",
+    "movieQuizBtn": "Lihat kuis film",
+    "portfolioName": "Situs Portofolio",
+    "portfolioDesc": "Portofolio responsif dengan animasi dan efek gulir",
+    "portfolioBtn": "Lihat portofolio"
+  },
+  "about": {
+    "title": "Tentang Saya",
+    "myself": "Profil Diri",
+    "myselfDesc": "Saya pengembang kreatif yang bersemangat, menggabungkan logika dan seni untuk pengalaman digital bermakna.",
+    "webDev": "Pengembang Web",
+    "webDevDesc": "Saya buat antarmuka modern, responsif dan animasi dengan kode rapi serta interaksi lancar.",
+    "writer": "Penulis & Kreator",
+    "writerDesc": "Bercerita, pembuatan konten dan inovasi adalah fokus utama saya.",
+    "flight": "Penerbangan & Pola Pikir",
+    "flightDesc": "Disiplin, fokus dan kendali emosi : keahlian dari dunia penerbangan.",
+    "introspection": "Bahasa & Pengembangan Diri",
+    "introspectionDesc": "Saya menguasai banyak bahasa dan terus belajar serta berkembang setiap hari."
+  },
+  "resume": {
+    "subheading": "Pengembang Web • Kru Pesawat • Penulis • Multibahasa",
+    "expertiseTitle": "Keahlian",
+    "languagesTitle": "Bahasa",
+    "experienceTitle": "Pengalaman Kerja",
+    "educationTitle": "Pendidikan",
+    "extraTitle": "Keahlian Tambahan",
+    "langLevelB2": "B2",
+    "langLevelB2Lilate": "B2 LILATE",
+    "langLevelA2": "A2",
+    "langLevelA1": "A1",
+    "exp1Title": "Petugas Kasir - E.Leclerc",
+    "exp1Desc": "7 tahun disiplin, dedikasi dan tanggung jawab.",
+    "exp2Title": "Petugas Kasir - Super U",
+    "exp2Desc": "Pelayanan pelanggan sebelum masa Covid.",
+    "exp3Title": "Penulis Mandiri",
+    "exp3Desc": "Diterbitkan di Swiss ; banyak cerita terbit mandiri.",
+    "exp4Title": "Magang - Onlineformapro ACS",
+    "exp4Desc": "Sertifikasi Full-Stack + magang di Maroko.",
+    "exp5Title": "Sertifikat Kru Pesawat (CCA)",
+    "exp5Desc": "Pelatihan teori (Lyon) dan praktik (Paris) selesai.",
+    "edu1Title": "Ijazah SMA",
+    "edu1Desc": "Lycée de la Versoie",
+    "edu2Title": "Studi Psikologi",
+    "edu2Desc": "2 tahun diselesaikan",
+    "edu3Title": "Studi Bahasa Inggris-Italia",
+    "edu3Desc": "2 tahun diselesaikan",
+    "edu4Title": "Pengembang Web & Mobile (BTS)",
+    "edu4Desc": "OnlineFormaPro"
+  },
+  "contact": {
+    "title": "Hubungi Saya",
+    "subtitle": "Silakan kirim pesan, saya akan segera membalas!",
+    "name": "Nama Anda",
+    "email": "Email Anda",
+    "message": "Pesan Anda",
+    "send": "Kirim Pesan",
+    "sending": "Mengirim...",
+    "successText": "Pesan terkirim!"
+  }
+}

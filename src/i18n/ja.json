@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "projects": "プロジェクト",
+    "about": "自己紹介",
+    "resume": "履歴書",
+    "contact": "お問い合わせ"
+  },
+  "home": {
+    "typewriterTitle": "こんにちは、ケビンです\nフルスタック開発者",
+    "motto": "歴史が未来と出会う場所。共に大きな夢を描こう",
+    "description": "洗練された最新のWeb体験を構築します。",
+    "ctaButton": "作品を見る"
+  },
+  "projects": {
+    "title": "プロジェクト",
+    "memoryGameName": "記憶ゲーム",
+    "memoryGameDesc": "アニメーション付きカード記憶ゲーム",
+    "memoryGameBtn": "記憶ゲームを見る",
+    "movieQuizName": "映画クイズ",
+    "movieQuizDesc": "スコア機能付き映画知識クイズ",
+    "movieQuizBtn": "映画クイズを見る",
+    "portfolioName": "ポートフォリオ",
+    "portfolioDesc": "スクロールアニメーション搭載レスポンシブサイト",
+    "portfolioBtn": "ポートフォリオを見る"
+  },
+  "about": {
+    "title": "私について",
+    "myself": "自己紹介",
+    "myselfDesc": "論理と芸術を融合させ、価値のあるデジタル体験を創造するクリエイティブ開発者です。",
+    "webDev": "Web開発者",
+    "webDevDesc": "クリーンなコードで、モダンで滑らかなアニメーションUIを制作します。",
+    "writer": "ライター・クリエイター",
+    "writerDesc": "物語制作、コンテンツ作成と革新的な発想を強みとしています。",
+    "flight": "航空業務・心構え",
+    "flightDesc": "航空業で培った規律、集中力、感情コントロールを活かしています。",
+    "introspection": "言語・自己成長",
+    "introspectionDesc": "複数の言語を習得し、日々学習と成長を続けています。"
+  },
+  "resume": {
+    "subheading": "Web開発・客室乗務員・ライター・多言語対応",
+    "expertiseTitle": "スキル",
+    "languagesTitle": "言語",
+    "experienceTitle": "職歴",
+    "educationTitle": "学歴",
+    "extraTitle": "その他のスキル",
+    "langLevelB2": "B2",
+    "langLevelB2Lilate": "B2 LILATE",
+    "langLevelA2": "A2",
+    "langLevelA1": "A1",
+    "exp1Title": "レジスタッフ - E.Leclerc",
+    "exp1Desc": "7年間の勤務で規律と責任感を養う。",
+    "exp2Title": "レジスタッフ - Super U",
+    "exp2Desc": "コロナ禍以前の接客・レジ業務。",
+    "exp3Title": "自費出版作家",
+    "exp3Desc": "スイスで出版、複数の小説を執筆・発行。",
+    "exp4Title": "インターン - Onlineformapro ACS",
+    "exp4Desc": "フルスタック開発資格取得＋モロッコで実習。",
+    "exp5Title": "客室乗務員資格 (CCA)",
+    "exp5Desc": "リヨン講義・パリ実習修了。",
+    "edu1Title": "高校卒業資格",
+    "edu1Desc": "Lycée de la Versoie",
+    "edu2Title": "心理学専攻",
+    "edu2Desc": "2年間修了",
+    "edu3Title": "英伊語学専攻",
+    "edu3Desc": "2年間修了",
+    "edu4Title": "Web・モバイル開発専攻",
+    "edu4Desc": "OnlineFormaPro"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "お気軽にメッセージを送信してください。早く返信いたします。",
+    "name": "お名前",
+    "email": "メールアドレス",
+    "message": "メッセージ",
+    "send": "送信",
+    "sending": "送信中…",
+    "successText": "送信完了！"
+  }
+}

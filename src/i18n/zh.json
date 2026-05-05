@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "首页",
+    "projects": "项目",
+    "about": "关于我",
+    "resume": "简历",
+    "contact": "联系我"
+  },
+  "home": {
+    "typewriterTitle": "你好，我是凯文\n全栈开发工程师",
+    "motto": "历史邂逅未来，让我们一起胸怀大志",
+    "description": "打造简洁、现代且可扩展的网页体验。",
+    "ctaButton": "查看作品"
+  },
+  "projects": {
+    "title": "我的项目",
+    "memoryGameName": "记忆小游戏",
+    "memoryGameDesc": "带动画的互动卡牌记忆游戏",
+    "memoryGameBtn": "查看记忆游戏",
+    "movieQuizName": "电影问答",
+    "movieQuizDesc": "趣味电影知识问答，自带计分系统",
+    "movieQuizBtn": "查看电影问答",
+    "portfolioName": "个人作品集",
+    "portfolioDesc": "滚动动画响应式国风作品集",
+    "portfolioBtn": "查看作品集"
+  },
+  "about": {
+    "title": "关于我",
+    "myself": "个人简介",
+    "myselfDesc": "热爱创作的开发者，融合逻辑与美学，打造有温度的数字作品。",
+    "webDev": "网页开发",
+    "webDevDesc": "编写整洁代码，制作流畅交互、现代化动画响应式界面。",
+    "writer": "文案创作 & 内容设计",
+    "writerDesc": "故事创作、内容策划与创新思维是我的核心优势。",
+    "flight": "航空素养 & 心态",
+    "flightDesc": "自律、专注、情绪管理 — 航空从业赋予我的核心能力。",
+    "introspection": "语言能力 & 自我成长",
+    "introspectionDesc": "掌握多国语言，坚持终身学习，不断探索与进步。"
+  },
+  "resume": {
+    "subheading": "网页开发 • 空乘人员 • 创作者 • 多语言",
+    "expertiseTitle": "专业技能",
+    "languagesTitle": "语言水平",
+    "experienceTitle": "工作经历",
+    "educationTitle": "教育背景",
+    "extraTitle": "综合能力",
+    "langLevelB2": "B2",
+    "langLevelB2Lilate": "B2 LILATE",
+    "langLevelA2": "A2",
+    "langLevelA1": "A1",
+    "exp1Title": "商超收银专员 - E.Leclerc",
+    "exp1Desc": "七年从业经历，具备高度自律与责任心。",
+    "exp2Title": "商超收银专员 - Super U",
+    "exp2Desc": "疫情前期客户服务与收银管理工作。",
+    "exp3Title": "独立小说作者 & 出版",
+    "exp3Desc": "瑞士出版作品，自主创作发布多篇文学故事。",
+    "exp4Title": "全栈开发实习生 - Onlineformapro ACS",
+    "exp4Desc": "全栈开发认证 + 摩洛哥企业实习。",
+    "exp5Title": "民航乘务员认证 (CCA)",
+    "exp5Desc": "里昂理论培训 + 巴黎实操考核全部完成。",
+    "edu1Title": "高中文凭",
+    "edu1Desc": "韦尔索瓦高中",
+    "edu2Title": "心理学专业学习",
+    "edu2Desc": "完成两年课程",
+    "edu3Title": "英意双语专业",
+    "edu3Desc": "完成两年课程",
+    "edu4Title": "网页与移动开发专科",
+    "edu4Desc": "OnlineFormaPro 院校"
+  },
+  "contact": {
+    "title": "联系我",
+    "subtitle": "随时发送留言，我会尽快回复您！",
+    "name": "您的姓名",
+    "email": "您的邮箱",
+    "message": "您的留言",
+    "send": "发送消息",
+    "sending": "发送中...",
+    "successText": "消息发送成功！"
+  }
+}

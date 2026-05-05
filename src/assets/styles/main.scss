@@ -1,0 +1,200 @@
+// 🟢 ALL VARIABLES DIRECTLY HERE (NO IMPORTS, NO ERRORS)
+$china-red: #c41e3a;
+$china-gold: #d4af37;
+$china-black: #0a0a0a;
+$white: #ffffff;
+$gray-light: #f5f5f5;
+$gray-dark: #1a1a1a;
+
+// MANUAL HOVER COLORS (NO DEPRECATED FUNCTIONS — 100% STABLE)
+$china-red-hover: #a01a30;
+$china-gold-hover: #e4b947;
+
+:root {
+  /* 
+    • Mobile: 16px (fixed, NO CHANGE)
+    • Tablet → Desktop: grows SMOOTHLY up to 18px
+    • Large screens: max 18px (elegant, not huge)
+  */
+  font-size: clamp(16px, 16px + 0.2vw, 18px);
+}
+
+// Base responsive headings (scale UP on big screens)
+h1 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+}
+h3 {
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+}
+h4 {
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+}
+
+p,
+li,
+a {
+  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+}
+
+// GLOBAL RESET & BASE STYLES
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+p {
+  padding: 1rem;
+  border-radius: 7px;
+}
+
+// ✨ CUSTOM SCROLLBAR (LIGHT + DARK MODE)
+// WebKit: Chrome, Edge, Safari
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: $gray-light;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $china-red;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $china-red-hover;
+}
+
+// Firefox
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $china-red $gray-light;
+}
+
+// DARK MODE SCROLLBAR
+.dark-mode ::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: $china-gold;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background: $china-gold-hover;
+}
+
+.dark-mode * {
+  scrollbar-color: $china-gold #121212;
+}
+
+// ------------------------------
+// YOUR EXISTING STYLES BELOW
+// ------------------------------
+
+body {
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: $white;
+  color: $china-black;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  line-height: 1.6;
+}
+
+// DARK MODE GLOBAL
+.dark-mode {
+  background-color: $china-black;
+  color: $white;
+}
+
+// CONTAINERS
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.py-16 {
+  padding: 4rem 0;
+}
+.pt-24 {
+  padding-top: 6rem;
+}
+.mb-12 {
+  margin-bottom: 3rem;
+}
+.text-center {
+  text-align: center;
+}
+
+// ANIMATIONS
+.dragon-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+// BUTTONS
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: $china-red;
+  color: $white;
+
+  &:hover {
+    background-color: $china-red-hover;
+  }
+}
+
+// CARD STYLING
+.card {
+  background: $white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.2s ease;
+
+  .dark-mode & {
+    background: #222;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}

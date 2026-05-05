@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "resume": "Resume",
+    "contact": "Contact"
+  },
+  "home": {
+    "typewriterTitle": "Hi, I'm Kevin\nA Full-Stack Developer",
+    "motto": "Where history meets the future. Together let's dream big",
+    "description": "Building clean, modern, and scalable web experiences.",
+    "ctaButton": "View My Work"
+  },
+  "projects": {
+    "title": "My Projects",
+    "memoryGameName": "Memory Game",
+    "memoryGameDesc": "Interactive memory card game with animations",
+    "memoryGameBtn": "View Memory Game",
+    "movieQuizName": "Movie Quiz",
+    "movieQuizDesc": "Fun movie trivia quiz with scoring system",
+    "movieQuizBtn": "View Movie Quiz",
+    "portfolioName": "Portfolio Website",
+    "portfolioDesc": "Responsive animated portfolio with scroll effects",
+    "portfolioBtn": "View Portfolio"
+  },
+  "about": {
+    "title": "About Me",
+    "myself": "Myself",
+    "myselfDesc": "I'm a passionate creative developer, blending logic and art to build meaningful digital experiences.",
+    "webDev": "Web Developer",
+    "webDevDesc": "I build modern, responsive, and animated interfaces with clean code and smooth interactions.",
+    "writer": "Writer & Creator",
+    "writerDesc": "Storytelling, content creation, and innovative thinking are at the heart of what I do.",
+    "flight": "Flight & Mindset",
+    "flightDesc": "Discipline, focus, and emotional control — skills I bring from aviation to every project.",
+    "introspection": "Languages & Growth",
+    "introspectionDesc": "I speak many languages and I keep learning, growing, and exploring every day."
+  },
+  "resume": {
+    "subheading": "Web Developer • Cabin Crew • Writer • Multilingual",
+    "expertiseTitle": "Expertise",
+    "languagesTitle": "Languages",
+    "experienceTitle": "Professional Experience",
+    "educationTitle": "Education",
+    "extraTitle": "Additional Skills",
+    "langLevelB2": "B2",
+    "langLevelB2Lilate": "B2 LILATE",
+    "langLevelA2": "A2",
+    "langLevelA1": "A1",
+    "exp1Title": "Self-service attendant / Cashier - E.Leclerc",
+    "exp1Desc": "7 years of discipline, dedication, and responsibility.",
+    "exp2Title": "Self-service attendant / Cashier - Super U",
+    "exp2Desc": "Cashier and customer service during pre-Covid period.",
+    "exp3Title": "Novel Publication / Self-published Writer",
+    "exp3Desc": "Published in Switzerland; self-published numerous stories.",
+    "exp4Title": "Intern - Onlineformapro ACS",
+    "exp4Desc": "Full-Stack Developer certification + internship in Morocco.",
+    "exp5Title": "Cabin Crew Attestation (CCA)",
+    "exp5Desc": "Theoretical (Lyon) + Practical (Paris) completed.",
+    "edu1Title": "High School Diploma (Baccalauréat)",
+    "edu1Desc": "Lycée de la Versoie",
+    "edu2Title": "Psychology Studies",
+    "edu2Desc": "2 years completed",
+    "edu3Title": "English-Italian Licence",
+    "edu3Desc": "2 years completed",
+    "edu4Title": "Web & Mobile Developer (BTS)",
+    "edu4Desc": "OnlineFormaPro"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Feel free to send me a message — I’ll get back to you quickly!",
+    "name": "Your Name",
+    "email": "Your Email",
+    "message": "Your Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "successText": "Message Sent!"
+  }
+}

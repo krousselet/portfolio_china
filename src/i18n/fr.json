@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "about": "À propos",
+    "resume": "CV",
+    "contact": "Contact"
+  },
+  "home": {
+    "typewriterTitle": "Bonjour, je suis Kevin\nDéveloppeur Full-Stack",
+    "motto": "Là où l’histoire rencontre l’avenir. Rêvons grand ensemble",
+    "description": "Création d’expériences web propres, modernes et évolutives.",
+    "ctaButton": "Voir mes travaux"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "memoryGameName": "Jeu de Mémoire",
+    "memoryGameDesc": "Jeu de cartes interactif avec animations",
+    "memoryGameBtn": "Voir le jeu de mémoire",
+    "movieQuizName": "Quiz Cinéma",
+    "movieQuizDesc": "Quiz de culture cinématographique avec système de score",
+    "movieQuizBtn": "Voir le quiz cinéma",
+    "portfolioName": "Site Portfolio",
+    "portfolioDesc": "Portfolio animé et responsive avec effets de défilement",
+    "portfolioBtn": "Voir le portfolio"
+  },
+  "about": {
+    "title": "À Propos",
+    "myself": "Présentation",
+    "myselfDesc": "Développeur créatif passionné, j’allie logique et art pour créer des expériences numériques uniques.",
+    "webDev": "Développeur Web",
+    "webDevDesc": "Je conçois des interfaces modernes, responsives et animées avec un code propre et fluide.",
+    "writer": "Auteur & Créateur",
+    "writerDesc": "La narration, la création de contenu et l’innovation sont au cœur de mon travail.",
+    "flight": "Aviation & État d’esprit",
+    "flightDesc": "Discipline, concentration et maîtrise émotionnelle : des compétences issues de l’aviation.",
+    "introspection": "Langues & Évolution",
+    "introspectionDesc": "Je parle plusieurs langues et continue d’apprendre, d’évoluer et d’explorer chaque jour."
+  },
+  "resume": {
+    "subheading": "Développeur Web • Personnel Navigant • Auteur • Multilingue",
+    "expertiseTitle": "Compétences",
+    "languagesTitle": "Langues",
+    "experienceTitle": "Expérience Professionnelle",
+    "educationTitle": "Formation",
+    "extraTitle": "Compétences Complémentaires",
+    "langLevelB2": "B2",
+    "langLevelB2Lilate": "B2 LILATE",
+    "langLevelA2": "A2",
+    "langLevelA1": "A1",
+    "exp1Title": "Hôte de caisse / Libre-service - E.Leclerc",
+    "exp1Desc": "7 ans de discipline, dévouement et responsabilité.",
+    "exp2Title": "Hôte de caisse / Libre-service - Super U",
+    "exp2Desc": "Accueil client et gestion des caisses avant la période Covid.",
+    "exp3Title": "Auteur auto-édité / Publication de romans",
+    "exp3Desc": "Publié en Suisse ; nombreuses histoires auto-éditées.",
+    "exp4Title": "Stage - Onlineformapro ACS",
+    "exp4Desc": "Certification Développeur Full-Stack + stage au Maroc.",
+    "exp5Title": "Certificat Personnel Navigant (CCA)",
+    "exp5Desc": "Formation théorique (Lyon) et pratique (Paris) terminées.",
+    "edu1Title": "Baccalauréat Général",
+    "edu1Desc": "Lycée de la Versoie",
+    "edu2Title": "Études de Psychologie",
+    "edu2Desc": "2 années validées",
+    "edu3Title": "Licence Anglais-Italien",
+    "edu3Desc": "2 années validées",
+    "edu4Title": "Développeur Web & Mobile (BTS)",
+    "edu4Desc": "OnlineFormaPro"
+  },
+  "contact": {
+    "title": "Me Contacter",
+    "subtitle": "N’hésitez pas à envoyer un message, je vous répondrai rapidement !",
+    "name": "Votre Nom",
+    "email": "Votre Email",
+    "message": "Votre Message",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "successText": "Message envoyé !"
+  }
+}

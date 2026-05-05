@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Progetti",
+    "about": "Chi sono",
+    "resume": "Curriculum",
+    "contact": "Contatti"
+  },
+  "home": {
+    "typewriterTitle": "Ciao, sono Kevin\nSviluppatore Full-Stack",
+    "motto": "Dove la storia incontra il futuro. Sogniamo in grande insieme",
+    "description": "Realizzo esperienze web pulite, moderne e scalabili.",
+    "ctaButton": "Vedi i miei lavori"
+  },
+  "projects": {
+    "title": "I Miei Progetti",
+    "memoryGameName": "Gioco di Memoria",
+    "memoryGameDesc": "Gioco di carte interattivo con animazioni",
+    "memoryGameBtn": "Vedi gioco memoria",
+    "movieQuizName": "Quiz Cinema",
+    "movieQuizDesc": "Quiz di cultura cinematografica con sistema di punteggio",
+    "movieQuizBtn": "Vedi quiz cinema",
+    "portfolioName": "Sito Portfolio",
+    "portfolioDesc": "Portfolio responsive con animazioni ed effetti di scorrimento",
+    "portfolioBtn": "Vedi portfolio"
+  },
+  "about": {
+    "title": "Chi Sono",
+    "myself": "Presentazione",
+    "myselfDesc": "Sono uno sviluppatore creativo appassionato, unisco logica e arte per creare esperienze digitali significative.",
+    "webDev": "Sviluppatore Web",
+    "webDevDesc": "Realizzo interfacce moderne, responsive e animate con codice pulito e interazioni fluide.",
+    "writer": "Scrittore & Creatore",
+    "writerDesc": "Narrazione, creazione di contenuti e innovazione sono al centro del mio lavoro.",
+    "flight": "Aviazione & Mentalità",
+    "flightDesc": "Disciplina, concentrazione e controllo emotivo : competenze acquisite dall’aviazione.",
+    "introspection": "Lingue & Crescita",
+    "introspectionDesc": "Parlo diverse lingue e continuo a imparare, crescere ed esplorare ogni giorno."
+  },
+  "resume": {
+    "subheading": "Sviluppatore Web • Equipaggio di Bordo • Scrittore • Multilingue",
+    "expertiseTitle": "Competenze",
+    "languagesTitle": "Lingue",
+    "experienceTitle": "Esperienza Professionale",
+    "educationTitle": "Formazione",
+    "extraTitle": "Competenze Aggiuntive",
+    "langLevelB2": "B2",
+    "langLevelB2Lilate": "B2 LILATE",
+    "langLevelA2": "A2",
+    "langLevelA1": "A1",
+    "exp1Title": "Addetto cassa / Self-service - E.Leclerc",
+    "exp1Desc": "7 anni di disciplina, dedizione e responsabilità.",
+    "exp2Title": "Addetto cassa / Self-service - Super U",
+    "exp2Desc": "Servizio clienti e gestione casse periodo pre-Covid.",
+    "exp3Title": "Scrittore auto-pubblicato",
+    "exp3Desc": "Pubblicato in Svizzera ; numerose storie auto-pubblicate.",
+    "exp4Title": "Stage - Onlineformapro ACS",
+    "exp4Desc": "Certificazione Full-Stack + tirocinio in Marocco.",
+    "exp5Title": "Attestato Equipaggio di Bordo (CCA)",
+    "exp5Desc": "Formazione teorica (Lione) e pratica (Parigi) completata.",
+    "edu1Title": "Diploma di Scuola Superiore",
+    "edu1Desc": "Lycée de la Versoie",
+    "edu2Title": "Studi di Psicologia",
+    "edu2Desc": "2 anni completati",
+    "edu3Title": "Laurea Inglese-Italiano",
+    "edu3Desc": "2 anni completati",
+    "edu4Title": "Sviluppatore Web & Mobile (BTS)",
+    "edu4Desc": "OnlineFormaPro"
+  },
+  "contact": {
+    "title": "Contattami",
+    "subtitle": "Invia un messaggio, ti risponderò il prima possibile!",
+    "name": "Il Tuo Nome",
+    "email": "La Tua Email",
+    "message": "Il Tuo Messaggio",
+    "send": "Invia Messaggio",
+    "sending": "Invio in corso...",
+    "successText": "Messaggio inviato!"
+  }
+}

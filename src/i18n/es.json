@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre mí",
+    "resume": "Currículum",
+    "contact": "Contacto"
+  },
+  "home": {
+    "typewriterTitle": "Hola, soy Kevin\nDesarrollador Full-Stack",
+    "motto": "Donde la historia se une al futuro. Soñemos en grande juntos",
+    "description": "Creo experiencias web limpias, modernas y escalables.",
+    "ctaButton": "Ver mis proyectos"
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "memoryGameName": "Juego de Memoria",
+    "memoryGameDesc": "Juego de cartas interactivo con animaciones",
+    "memoryGameBtn": "Ver juego de memoria",
+    "movieQuizName": "Quiz de Cine",
+    "movieQuizDesc": "Quiz de cultura cinematográfica con sistema de puntuación",
+    "movieQuizBtn": "Ver quiz de cine",
+    "portfolioName": "Sitio Portfolio",
+    "portfolioDesc": "Portfolio responsivo animado con efectos de desplazamiento",
+    "portfolioBtn": "Ver portfolio"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "myself": "Presentación",
+    "myselfDesc": "Desarrollador creativo apasionado, combino lógica y arte para crear experiencias digitales únicas.",
+    "webDev": "Desarrollador Web",
+    "webDevDesc": "Diseño interfaces modernas, responsivas y animadas con código limpio y transiciones fluidas.",
+    "writer": "Escritor & Creador",
+    "writerDesc": "La narrativa, creación de contenido e innovación son el centro de mi trabajo.",
+    "flight": "Aviación & Mentalidad",
+    "flightDesc": "Disciplina, concentración y control emocional: habilidades adquiridas en aviación.",
+    "introspection": "Idiomas & Crecimiento",
+    "introspectionDesc": "Hablo varios idiomas y sigo aprendiendo, creciendo y explorando cada día."
+  },
+  "resume": {
+    "subheading": "Desarrollador Web • Tripulante de Cabina • Escritor • Multilingüe",
+    "expertiseTitle": "Habilidades",
+    "languagesTitle": "Idiomas",
+    "experienceTitle": "Experiencia Profesional",
+    "educationTitle": "Formación",
+    "extraTitle": "Habilidades Adicionales",
+    "langLevelB2": "B2",
+    "langLevelB2Lilate": "B2 LILATE",
+    "langLevelA2": "A2",
+    "langLevelA1": "A1",
+    "exp1Title": "Cajero / Autoservicio - E.Leclerc",
+    "exp1Desc": "7 años de disciplina, dedicación y responsabilidad.",
+    "exp2Title": "Cajero / Autoservicio - Super U",
+    "exp2Desc": "Atención al cliente antes del periodo Covid.",
+    "exp3Title": "Escritor autoeditado",
+    "exp3Desc": "Publicado en Suiza ; múltiples historias autoeditadas.",
+    "exp4Title": "Prácticas - Onlineformapro ACS",
+    "exp4Desc": "Certificación Full-Stack + prácticas en Marruecos.",
+    "exp5Title": "Certificado Tripulante de Cabina (CCA)",
+    "exp5Desc": "Formación teórica (Lyon) y práctica (París) finalizada.",
+    "edu1Title": "Bachillerato",
+    "edu1Desc": "Lycée de la Versoie",
+    "edu2Title": "Estudios de Psicología",
+    "edu2Desc": "2 años completados",
+    "edu3Title": "Licenciatura Inglés-Francés",
+    "edu3Desc": "2 años completados",
+    "edu4Title": "Desarrollador Web y Móvil (BTS)",
+    "edu4Desc": "OnlineFormaPro"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Envíame un mensaje, te responderé rápidamente.",
+    "name": "Tu Nombre",
+    "email": "Tu Correo",
+    "message": "Tu Mensaje",
+    "send": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "successText": "¡Mensaje enviado!"
+  }
+}
