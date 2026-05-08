@@ -5,6 +5,8 @@ import i18n from './i18n'
 import './assets/styles/main.scss'
 
 const app = createApp(App)
-app.use(router)
-app.use(i18n)
-app.mount('#app')
+setTimeout(() => {
+  app.use(router)
+  app.use(i18n)
+  app.mount('#app')
+}, 300)

@@ -68,12 +68,14 @@
         src="/images/dragon_black.png"
         alt="Dragon Light Mode"
         class="dragon-img"
+        loading="lazy"
       />
       <img
         v-if="isDarkMode"
         src="/images/dragon_white.png"
         alt="Dragon Dark Mode"
         class="dragon-img"
+        loading="lazy"
       />
       <span class="success-text">{{ $t('contact.successText') }}</span>
     </div>

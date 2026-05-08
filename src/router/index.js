@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Projects from '../views/Projects.vue'
-import About from '../views/About.vue'
-import Resume from '../views/Resume.vue'
-import Contact from '../views/Contact.vue'
+
+// 🔥 LAZY LOADED ROUTES (only load when needed)
+const Home = () => import('../views/Home.vue')
+const Projects = () => import('../views/Projects.vue')
+const About = () => import('../views/About.vue')
+const Resume = () => import('../views/Resume.vue')
+const Contact = () => import('../views/Contact.vue')
 
 const routes = [
   {

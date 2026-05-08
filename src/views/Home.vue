@@ -3,14 +3,12 @@
     <div class="scroll-spacer"></div>
 
     <div class="hero-content" :style="heroStyles">
-      <!-- TYPEWRITER WITH CURSOR -->
-      <h1 class="main-title no-cursor" data-reveal="title">
-        <span class="typewriter no-cursor">{{ typedText }}</span>
-        <span class="cursor blink no-cursor">_</span>
+      <h1 class="main-title" data-reveal="title">
+        <span class="typewriter">{{ typedText }}</span>
+        <span class="cursor blink">_</span>
       </h1>
 
-      <!-- JUMPING LETTERS MOTTO -->
-      <p class="motto no-cursor" data-reveal="motto">
+      <p class="motto" data-reveal="motto">
         <span
           class="letter"
           v-for="(char, i) in mottoText"
@@ -21,36 +19,45 @@
         </span>
       </p>
 
-      <p class="description no-cursor" data-reveal="desc">
+      <p class="description" data-reveal="desc">
         {{ $t('home.description') }}
       </p>
     </div>
 
-    <div class="scroll-indicator" :style="indicatorStyles">
-      <div class="arrow"></div>
-    </div>
-
+    <div class="scroll-indicator" :style="indicatorStyles"></div>
     <div class="fade-bottom" :style="bottomStyles"></div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-// Reactive translation texts
+// Reactive translations
 const titleText = computed(() => t('home.typewriterTitle'))
 const mottoText = computed(() => t('home.motto'))
 
+// State
 const scrollProgress = ref(0)
 const typedText = ref('')
 const hasTyped = ref(false)
 
-// ------------------------------
-// TYPEWRITER
-// ------------------------------
+// Cache elements ONCE (critical for performance)
+let revealElements = []
+let totalScrollHeight = 0
+
+// Debounce function (limits scroll event frequency)
+const debounce = (fn, delay = 16) => {
+  let timeoutId
+  return (...args) => {
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => fn(...args), delay)
+  }
+}
+
+// Typewriter (unchanged but optimized)
 function startTypewriter() {
   if (hasTyped.value) return
   hasTyped.value = true
@@ -67,62 +74,68 @@ function startTypewriter() {
   }, 35)
 }
 
-// ------------------------------
-// SCROLL LOGIC
-// ------------------------------
-function updateScroll() {
-  const total = document.body.scrollHeight - window.innerHeight
-  scrollProgress.value = Math.min(window.scrollY / total, 1)
-}
+// Optimized scroll handler (batch reads/writes)
+const handleScroll = debounce(() => {
+  // 1. READ layout properties FIRST (single read)
+  const scrollY = window.scrollY
+  scrollProgress.value = Math.min(scrollY / totalScrollHeight, 1)
+  const progress = scrollProgress.value
 
-const heroStyles = ref({ opacity: 0, transform: 'translate(-50%, -50%) scale(0.8)' })
-const indicatorStyles = ref({})
-const bottomStyles = ref({})
+  // 2. WRITE styles in requestAnimationFrame (batched)
+  requestAnimationFrame(() => {
+    // Hero visibility
+    const showHero = progress > 0.03
+    heroStyles.value = {
+      opacity: showHero ? 1 : 0,
+      transform: `translate(-50%, -50%) scale(${showHero ? 1 : 0.8})`,
+    }
 
-watch(scrollProgress, (val) => {
-  // HERO
-  const showHero = val > 0.03
-  heroStyles.value = {
-    opacity: showHero ? 1 : 0,
-    transform: `translate(-50%, -50%) scale(${showHero ? 1 : 0.8})`,
-  }
+    // Scroll indicator
+    indicatorStyles.value = { opacity: progress < 0.06 ? 1 : 0 }
 
-  // INDICATOR
-  indicatorStyles.value = { opacity: val < 0.06 ? 1 : 0 }
+    // Bottom fade
+    bottomStyles.value = {
+      opacity: progress > 0.3 ? Math.min(1, (progress - 0.3) / 0.3) : 0,
+    }
 
-  // BOTTOM FADE
-  bottomStyles.value = {
-    opacity: val > 0.3 ? Math.min(1, (val - 0.3) / 0.3) : 0,
-  }
+    // Reveal elements (cached)
+    revealElements.forEach((el) => {
+      const t = el.dataset.reveal
+      let threshold = 0
+      if (t === 'title') threshold = 0.05
+      if (t === 'motto') threshold = 0.09
+      if (t === 'desc') threshold = 0.13
 
-  // REVERSIBLE VISIBILITY
-  const setVisible = (el, visible) => {
-    el.classList.toggle('visible', visible)
-    el.classList.toggle('hidden', !visible)
-  }
+      const isVisible = progress > threshold
+      el.style.opacity = isVisible ? '1' : '0'
+      el.style.transform = isVisible ? 'translateY(0)' : 'translateY(30px)'
 
-  document.querySelectorAll('[data-reveal]').forEach((el) => {
-    const t = el.dataset.reveal
-    let th = 0
-    if (t === 'title') th = 0.05
-    if (t === 'motto') th = 0.09
-    if (t === 'desc') th = 0.13
-    if (t === 'btn') th = 0.17
-
-    const vis = val > th
-    setVisible(el, vis)
-
-    if (t === 'title' && vis) startTypewriter()
+      // Start typewriter only once
+      if (t === 'title' && isVisible) startTypewriter()
+    })
   })
 })
 
+// Reactive styles
+const heroStyles = ref({
+  opacity: 0,
+  transform: 'translate(-50%, -50%) scale(0.8)',
+})
+const indicatorStyles = ref({ opacity: 1 })
+const bottomStyles = ref({ opacity: 0 })
+
 onMounted(() => {
-  window.addEventListener('scroll', updateScroll)
-  updateScroll()
+  // Cache elements ONCE
+  revealElements = document.querySelectorAll('[data-reveal]')
+  totalScrollHeight = document.body.scrollHeight - window.innerHeight
+
+  // Add optimized scroll listener
+  window.addEventListener('scroll', handleScroll)
+  handleScroll() // Initial call
 })
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', updateScroll)
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
@@ -146,12 +159,12 @@ onUnmounted(() => {
   z-index: 10;
   width: 90%;
   max-width: 1400px;
-  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  transition:
+    opacity 0.5s cubic-bezier(0.2, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-/* ------------------------------
-   TYPEWRITER & CURSOR
------------------------------- */
+/* TYPEWRITER & CURSOR */
 .main-title {
   font-size: clamp(2.2rem, 6vw, 7rem);
   font-weight: 700;
@@ -160,17 +173,10 @@ onUnmounted(() => {
   margin-bottom: 1.4rem;
   opacity: 0;
   transform: translateY(30px);
-  transition: 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
   white-space: pre-wrap;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  &.hidden {
-    opacity: 0;
-    transform: translateY(30px);
-  }
 }
 
 .typewriter {
@@ -190,7 +196,6 @@ onUnmounted(() => {
   }
 }
 
-/* ANIMATED UNDERLINE */
 .typewriter::after {
   content: '';
   position: absolute;
@@ -201,15 +206,13 @@ onUnmounted(() => {
   background: #c41e3a;
   border-radius: 2px;
   transition: width 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-
-  .main-title.visible & {
-    width: 100%;
-  }
 }
 
-/* ------------------------------
-   JUMPING LETTERS MOTTO (FIXED)
------------------------------- */
+.main-title[style*='opacity: 1'] .typewriter::after {
+  width: 100%;
+}
+
+/* JUMPING LETTERS MOTTO */
 .motto {
   font-size: clamp(1.1rem, 3.2vw, 3.2rem);
   font-weight: 500;
@@ -219,14 +222,10 @@ onUnmounted(() => {
   line-height: 1.4;
   text-align: center;
   opacity: 0;
-  transition: 0.5s ease;
-
-  &.visible {
-    opacity: 1;
-  }
-  &.hidden {
-    opacity: 0;
-  }
+  transform: translateY(30px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
 .letter {
@@ -235,15 +234,10 @@ onUnmounted(() => {
   transform: translateY(50px) scale(0.7);
   animation: jumpIn 0.6s cubic-bezier(0.2, 1, 0.3, 1) forwards;
   animation-play-state: paused;
+}
 
-  .motto.visible & {
-    animation-play-state: running;
-  }
-  .motto.hidden & {
-    animation: none;
-    opacity: 0;
-    transform: translateY(50px) scale(0.7);
-  }
+.motto[style*='opacity: 1'] .letter {
+  animation-play-state: running;
 }
 
 @keyframes jumpIn {
@@ -253,56 +247,19 @@ onUnmounted(() => {
   }
 }
 
-/* ------------------------------
-   DESCRIPTION & BUTTON
------------------------------- */
+/* DESCRIPTION */
 .description {
   font-size: clamp(1rem, 2vw, 1.3rem);
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(20px);
-  transition: 0.5s ease;
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  &.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
-.btn-primary {
-  padding: 1rem 2.2rem;
-  background: #c41e3a;
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-block;
-  transition: 0.4s ease;
-  opacity: 0;
-  transform: translateY(20px);
-
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  &.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  &:hover {
-    background: #a31a32;
-    transform: translateY(-2px);
-  }
-}
-
-/* ------------------------------
-   SCROLL INDICATOR
------------------------------- */
+/* SCROLL INDICATOR */
 .scroll-indicator {
   position: fixed;
   left: 50%;
@@ -311,7 +268,10 @@ onUnmounted(() => {
   z-index: 8;
   transition: opacity 0.4s ease;
 }
-.arrow {
+
+.scroll-indicator::before {
+  content: '';
+  display: block;
   width: 26px;
   height: 26px;
   border-right: 3px solid rgba(255, 255, 255, 0.5);
@@ -319,6 +279,7 @@ onUnmounted(() => {
   transform: rotate(45deg);
   animation: bounce 1.7s infinite ease-in-out;
 }
+
 @keyframes bounce {
   0%,
   100% {

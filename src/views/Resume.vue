@@ -7,7 +7,7 @@
       <section class="panel" data-panel>
         <div class="profile-card" data-slide-in>
           <div class="avatar">
-            <img src="/images/me.png" alt="Developer face" />
+            <img src="/images/me.png" alt="Developer face" loading="lazy" />
           </div>
           <div class="profile-text">
             <h1 class="heading-primary jump-text no-cursor">Kevin Rousselet</h1>
@@ -25,7 +25,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="/images/instagram.png" alt="Instagram logo" />
+                  <img src="/images/instagram.png" alt="Instagram logo" loading="lazy" />
                 </a>
                 <!-- YOUTUBE -->
                 <a
@@ -33,7 +33,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="/images/youtube.png" alt="YouTube logo" />
+                  <img src="/images/youtube.png" alt="YouTube logo" loading="lazy" />
                 </a>
               </div>
             </div>
@@ -358,17 +358,40 @@ $white: #fff;
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background: linear-gradient(135deg, $red, $gold);
+
+  /* This creates the animated glowing border container */
+  position: relative;
+  background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  img {
-    width: inherit;
-    height: inherit;
+  /* 🔴 ROTATING GLOWING ANIMATION BORDER */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
     border-radius: 50%;
+    background: conic-gradient(from 0deg, #ff2c4b 0%, #c41e3a 50%, #ff6b81 100%);
+    animation: rotate-glow 3s linear infinite;
+    z-index: -1;
+    filter: blur(6px);
+    opacity: 0.9;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
   }
 }
+
 .heading-primary {
   font-size: clamp(1.8rem, 5vw, 2.6rem);
   font-weight: 700;
@@ -480,6 +503,17 @@ $white: #fff;
 .tremble-text {
   animation: tremble 0.9s infinite alternate ease-in-out;
 }
+
+/* ROTATION ANIMATION */
+@keyframes rotate-glow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes jump {
   0% {
     transform: translateY(0);
