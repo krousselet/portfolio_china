@@ -6,7 +6,9 @@
       <!-- PANEL 1: ONLY TRUE CENTER -->
       <section class="panel" data-panel>
         <div class="profile-card" data-slide-in>
-          <div class="avatar"></div>
+          <div class="avatar">
+            <img src="/images/me.png" alt="Developer face" />
+          </div>
           <div class="profile-text">
             <h1 class="heading-primary jump-text no-cursor">Kevin Rousselet</h1>
             <p class="subheading tremble-text no-cursor">
@@ -23,7 +25,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="../../public/images/instagram.png" alt="Instagram logo" />
+                  <img src="/images/instagram.png" alt="Instagram logo" />
                 </a>
                 <!-- YOUTUBE -->
                 <a
@@ -31,7 +33,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="../../public/images/youtube.png" alt="YouTube logo" />
+                  <img src="/images/youtube.png" alt="YouTube logo" />
                 </a>
               </div>
             </div>
@@ -352,10 +354,20 @@ $white: #fff;
 
 /* STYLES */
 .avatar {
-  width: 150px;
-  height: 150px;
+  margin-top: 100px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   background: linear-gradient(135deg, $red, $gold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+  }
 }
 .heading-primary {
   font-size: clamp(1.8rem, 5vw, 2.6rem);
