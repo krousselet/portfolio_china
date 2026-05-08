@@ -199,3 +199,10 @@ body {
     transform: translateY(-4px);
   }
 }
+
+/* ADD TO GLOBAL CSS */
+a[aria-current='page'] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}

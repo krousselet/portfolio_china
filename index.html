@@ -10,6 +10,20 @@
       content="Portfolio of Kevin Rousselet - Web Developer based in Hefei, China."
     />
     <title>Kevin Portfolio</title>
+    <script>
+      document.documentElement.classList.add('js-loading')
+      window.addEventListener('load', () => {
+        document.documentElement.classList.remove('js-loading')
+      })
+    </script>
+    <style>
+      /* SHOW TEXT EVEN BEFORE JS LOADS */
+      [data-v-752f5c31] {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: inline-block !important;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
