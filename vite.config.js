@@ -2,33 +2,25 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    // 🔥 DEVTOOLS ONLY IN DEVELOPMENT (DISABLE IN PROD)
-    // vueDevTools() // REMOVE THIS FOR PROD / PERFORMANCE
-  ],
+  plugins: [vue()], // REMOVED DEVTOOLS COMPLETELY
 
-  // SPLIT CODE FOR MAX SPEED
   build: {
     chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['vue', 'vue-router', 'vue-i18n'],
+        manualChunks: (id) => {
+          if (id.includes('vue')) return 'vendor-vue'
+          if (id.includes('vue-router')) return 'vendor-router'
+          if (id.includes('vue-i18n')) return 'vendor-i18n'
         },
       },
     },
-    // MINIFY + BUST CACHE + REDUCE SIZE
-    minify: 'terser',
-    cssCodeSplit: true,
   },
 
-  // PREVENT LONG REQUEST CHAINS
+  // 🔥 THIS STOPS THE REQUEST CHAIN
   optimizeDeps: {
-    include: ['vue', 'vue-router', 'vue-i18n'],
-    // 🔥 DISABLE UNNECESSARY PRELOADS
+    include: [],
     esbuildOptions: {
       preload: false,
     },
@@ -40,10 +32,9 @@ export default defineConfig({
     },
   },
 
-  // ✅ PREVENT UNNECESSARY FILE WATCHING
+  // 🔥 DISABLE UNNECESSARY WATCHING
   server: {
-    watch: {
-      ignored: ['**/node_modules/**', '**/dist/**'],
-    },
+    preloadRequests: false,
+    watch: { ignored: ['**/node_modules/**'] },
   },
 })

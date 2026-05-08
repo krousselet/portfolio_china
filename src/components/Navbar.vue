@@ -18,7 +18,12 @@
             {{ $t(item.label) }}
           </router-link>
 
-          <select class="language-selector" @change="changeLang" v-model="currentLang">
+          <select
+            class="language-selector"
+            @change="changeLang"
+            v-model="currentLang"
+            aria-label="Choose language"
+          >
             <option value="en">English</option>
             <option value="fr">Français</option>
             <option value="ru">Русский</option>

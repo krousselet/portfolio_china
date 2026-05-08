@@ -1,47 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// 🔥 LAZY LOADED ROUTES (only load when needed)
+// LAZY LOAD — NO import Home from ...
 const Home = () => import('../views/Home.vue')
-const Projects = () => import('../views/Projects.vue')
 const About = () => import('../views/About.vue')
+const Projects = () => import('../views/Projects.vue')
 const Resume = () => import('../views/Resume.vue')
 const Contact = () => import('../views/Contact.vue')
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
-    path: '/projects',
-    name: 'Projects',
-    component: Projects,
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: About,
-  },
-  {
-    path: '/resume',
-    name: 'Resume',
-    component: Resume,
-  },
-  {
-    path: '/contact',
-    name: 'Contact',
-    component: Contact,
-  },
-  // Catch 404 -> redirect to home
-  {
-    path: '/:pathMatch(.*)*',
-    redirect: '/',
-  },
+  { path: '/', name: 'Home', component: Home },
+  { path: '/about', name: 'About', component: About },
+  { path: '/projects', name: 'Projects', component: Projects },
+  { path: '/resume', name: 'Resume', component: Resume },
+  { path: '/contact', name: 'Contact', component: Contact },
+  { path: '/:pathMatch(.*)*', redirect: '/' },
 ]
 
 const router = createRouter({
-  // STABLE HISTORY MODE (NO # IN URL)
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
 })
