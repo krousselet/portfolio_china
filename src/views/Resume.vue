@@ -9,10 +9,17 @@
           <div class="avatar">
             <picture>
               <!-- Primary: WebP (fast, small) -->
-              <source srcset="/images/me.webp" type="image/webp" />
+              <source
+                srcset="/images/me.webp"
+                type="image/webp"
+                fetchpriority="high"
+                width="250"
+                height="250"
+                decoding="async"
+              />
 
               <!-- FALLBACK: PNG / JPG (old browsers) -->
-              <img src="/images/me.png" alt="Developer face" fetchpriority="high" />
+              <img src="/images/me.png" alt="Developer face" />
             </picture>
           </div>
           <div class="profile-text">
