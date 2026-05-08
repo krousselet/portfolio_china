@@ -398,6 +398,7 @@ $white: #fff;
   img {
     width: 250px;
     height: 250px;
+    margin-right: 5px;
     border-radius: 50%;
     object-fit: cover;
     position: relative;
