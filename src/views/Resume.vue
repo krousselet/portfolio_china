@@ -7,7 +7,13 @@
       <section class="panel" data-panel>
         <div class="profile-card" data-slide-in>
           <div class="avatar">
-            <img src="/images/me.png" alt="Developer face" loading="lazy" />
+            <picture>
+              <!-- Primary: WebP (fast, small) -->
+              <source srcset="/images/me.webp" type="image/webp" />
+
+              <!-- FALLBACK: PNG / JPG (old browsers) -->
+              <img src="/images/me.png" alt="Developer face" loading="lazy" />
+            </picture>
           </div>
           <div class="profile-text">
             <h1 class="heading-primary jump-text no-cursor">Kevin Rousselet</h1>
