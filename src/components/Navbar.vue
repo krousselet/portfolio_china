@@ -152,7 +152,7 @@ $light-bg: #ffffff;
   gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 
   a {
     font-weight: 600;
