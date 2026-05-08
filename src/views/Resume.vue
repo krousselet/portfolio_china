@@ -15,7 +15,7 @@
                 fetchpriority="high"
                 width="250"
                 height="250"
-                decoding="async"
+                decoding="sync"
               />
 
               <!-- FALLBACK: PNG / JPG (old browsers) -->

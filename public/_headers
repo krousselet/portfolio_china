@@ -1,4 +1,11 @@
+# Cache static assets FOREVER (immutable)
 /*
   Cache-Control: public, max-age=31536000, immutable
-  /images/*
+
+# Override: HTML = no long cache (must revalidate)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Special rule: YOUR LCP IMAGE = ultra long cache
+/images/*
   Cache-Control: public, max-age=31536000, immutable
