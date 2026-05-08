@@ -12,7 +12,7 @@
               <source srcset="/images/me.webp" type="image/webp" />
 
               <!-- FALLBACK: PNG / JPG (old browsers) -->
-              <img src="/images/me.png" alt="Developer face" loading="lazy" />
+              <img src="/images/me.png" alt="Developer face" fetchpriority="high" />
             </picture>
           </div>
           <div class="profile-text">
