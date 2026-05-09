@@ -1,5 +1,5 @@
 <template>
-  <section class="contact-section min-h-screen pt-24 pb-16 px-4">
+  <section class="contact-section">
     <div class="container max-w-6xl mx-auto">
       <!-- Title -->
       <div class="text-center mb-12" data-reveal>
@@ -83,7 +83,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, computed } from 'vue'
+import { ref, reactive, onMounted, computed, onBeforeUnmount } from 'vue'
 import { useSounds } from '../composables/useSounds'
 
 // SOUND
@@ -120,7 +120,7 @@ onMounted(() => {
   observer.observe(document.documentElement, { attributes: true })
 })
 
-// Scroll Reveal
+// SCROLL REVEAL
 onMounted(() => {
   const els = document.querySelectorAll('[data-reveal]')
   const check = () => {
@@ -132,6 +132,18 @@ onMounted(() => {
   check()
 })
 
+// ✅ BLOCK ALL VERTICAL SCROLLING ON THIS PAGE
+onMounted(() => {
+  document.body.style.overflowY = 'hidden'
+  document.documentElement.style.overflowY = 'hidden'
+})
+
+// ✅ RESTORE SCROLL WHEN LEAVING PAGE
+onBeforeUnmount(() => {
+  document.body.style.overflowY = 'auto'
+  document.documentElement.style.overflowY = 'auto'
+})
+
 // Submit
 const sendForm = async () => {
   loading.value = true
@@ -141,7 +153,6 @@ const sendForm = async () => {
   loading.value = false
   showSuccess.value = true
 
-  //  PLAY FIRE SOUND ON SUCCESS
   playFire()
 
   form.name = ''
@@ -160,9 +171,27 @@ $white: #fff;
 $gray: #f8f8f8;
 $dark-card: #1a1a1a;
 
+// Breakpoints
+$breakpoint-phone: 320px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+$breakpoint-desktop: 1440px;
+
+// ✅ FINAL FIX: NO SCROLL, NO OVERFLOW
 .contact-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
   background: $white;
-  min-height: 100vh;
+  overflow: hidden !important;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background 0.3s ease;
 
   :global(.dark-mode) & {
@@ -170,9 +199,15 @@ $dark-card: #1a1a1a;
   }
 }
 
+.container {
+  width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
 /* Title */
 .section-title {
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   color: $china-red;
   margin-bottom: 0.8rem;
 
@@ -182,9 +217,9 @@ $dark-card: #1a1a1a;
 }
 
 .sub-title {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   opacity: 0.8;
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -192,25 +227,21 @@ $dark-card: #1a1a1a;
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
-  max-width: 900px;
+  gap: 1.5rem;
+  max-width: 650px;
   margin: 0 auto;
-
-  @media (min-width: 768px) {
-    grid-template-columns: 1fr 1.2fr;
-    align-items: center;
-  }
 }
 
 /* Form Card */
 .form-card {
   background: $gray;
-  border-radius: 18px;
-  padding: 2rem;
+  border-radius: 16px;
+  padding: clamp(1.2rem, 3vw, 2rem);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(30px);
   transition: all 0.8s ease;
+  box-sizing: border-box;
 
   :global(.dark-mode) & {
     background: $dark-card;
@@ -227,7 +258,6 @@ $dark-card: #1a1a1a;
 .jump-text {
   animation: jump 1.8s infinite alternate ease-in-out;
 }
-
 .tremble-text {
   animation: tremble 0.9s infinite alternate ease-in-out;
 }
@@ -237,10 +267,9 @@ $dark-card: #1a1a1a;
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
   }
 }
-
 @keyframes tremble {
   0% {
     transform: translateX(0);
@@ -257,7 +286,7 @@ $dark-card: #1a1a1a;
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .input-group {
@@ -266,17 +295,17 @@ $dark-card: #1a1a1a;
   gap: 0.4rem;
 
   label {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
   }
 }
 
 .input {
-  padding: 0.9rem 1.1rem;
-  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
   border: 2px solid transparent;
-  background: lighten($gray, 4%);
-  font-size: 1rem;
+  background: #fcfcfc;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
 
   :global(.dark-mode) & {
@@ -301,15 +330,14 @@ $dark-card: #1a1a1a;
 
 /* Button */
 .btn-hover {
-  padding: 1rem;
-  border-radius: 10px;
+  padding: 0.9rem;
+  border-radius: 8px;
   background: $china-red;
   color: $white;
   font-weight: 600;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 0.5rem;
 
   :global(.dark-mode) & {
     background: $china-gold;
@@ -317,12 +345,8 @@ $dark-card: #1a1a1a;
   }
 
   &:hover:not(:disabled) {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 14px rgba(196, 17, 58, 0.25);
-
-    :global(.dark-mode) & {
-      box-shadow: 0 6px 14px rgba(212, 175, 55, 0.25);
-    }
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(196, 17, 58, 0.2);
   }
 
   &:disabled {
@@ -334,8 +358,8 @@ $dark-card: #1a1a1a;
 /* Stagger */
 [data-stagger] {
   opacity: 0;
-  transform: translateY(15px);
-  transition: all 0.6s ease;
+  transform: translateY(12px);
+  transition: all 0.5s ease;
 
   .revealed & {
     opacity: 1;
@@ -345,11 +369,11 @@ $dark-card: #1a1a1a;
 
 @for $i from 1 through 15 {
   [data-stagger]:nth-child(#{$i}) {
-    transition-delay: 0.15s + $i * 0.1s;
+    transition-delay: 0.1s + $i * 0.08s;
   }
 }
 
-// ✨ SUCCESS ANIMATION
+// Success Animation
 .success-animation {
   position: fixed;
   top: 50%;
@@ -359,11 +383,9 @@ $dark-card: #1a1a1a;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   pointer-events: none;
-  width: 100%;
-  max-width: 300px;
+  max-width: 260px;
 
   &.show {
     transform: translate(-50%, -50%) scale(1);
@@ -373,13 +395,12 @@ $dark-card: #1a1a1a;
 .dragon-img {
   width: 100%;
   height: auto;
-  object-fit: contain;
   animation: dragonPulse 1.2s infinite alternate ease-in-out;
 }
 
 .success-text {
-  margin-top: 1rem;
-  font-size: 1.2rem;
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: $china-red;
 
@@ -394,6 +415,16 @@ $dark-card: #1a1a1a;
   }
   to {
     transform: scale(1.05);
+  }
+}
+
+// Mobile
+@media (max-width: $breakpoint-phone) {
+  .contact-section {
+    padding: 1rem;
+  }
+  .form-card {
+    padding: 1rem;
   }
 }
 </style>

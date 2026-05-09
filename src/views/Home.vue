@@ -212,8 +212,12 @@ onUnmounted(() => {
   width: 100%;
 }
 
-/* JUMPING LETTERS MOTTO */
+/* JUMPING LETTERS MOTTO — FULL UNBREAKABLE LINE */
 .motto {
+  /* ✅ THESE 2 LINES FIX IT */
+  white-space: nowrap !important;
+  width: 100%;
+
   font-size: clamp(1.1rem, 3.2vw, 3.2rem);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.94);

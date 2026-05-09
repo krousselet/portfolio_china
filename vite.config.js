@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-  plugins: [vue()], // REMOVED DEVTOOLS COMPLETELY
+  plugins: [vue()],
 
   build: {
     chunkSizeWarningLimit: 500,
@@ -18,12 +18,8 @@ export default defineConfig({
     },
   },
 
-  // 🔥 THIS STOPS THE REQUEST CHAIN
   optimizeDeps: {
     include: [],
-    esbuildOptions: {
-      preload: false,
-    },
   },
 
   resolve: {
@@ -32,7 +28,6 @@ export default defineConfig({
     },
   },
 
-  // 🔥 DISABLE UNNECESSARY WATCHING
   server: {
     preloadRequests: false,
     watch: { ignored: ['**/node_modules/**'] },

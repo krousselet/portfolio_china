@@ -48,6 +48,23 @@
                 >
                   <img src="/images/youtube.png" alt="YouTube logo" loading="lazy" />
                 </a>
+                <!-- FACEBOOK -->
+                <a
+                  href="https://www.facebook.com/profile.php?id=61589054711099&sk=owner_reels&locale=fr_FR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="/images/facebook.png" alt="YouTube logo" loading="lazy" />
+                </a>
+                <!-- DOWNLOAD RESUME BUTTON + ICON -->
+                <a
+                  class="download-resume"
+                  href="/files/kevin_rousselet_cv.pdf"
+                  download="kevin_rousselet_cv.pdf"
+                  @click="playClickSound"
+                >
+                  <img src="/images/cv_icon.png" alt="Download PDF Resume" loading="lazy" />
+                </a>
               </div>
             </div>
           </div>
@@ -74,12 +91,12 @@
         </div>
       </section>
 
-      <!-- PANEL 3 -->
+      <!-- PANEL 3: EXPERIENCE - 2 COLUMNS -->
       <section class="panel" data-panel>
         <div class="card card-experience" data-slide-in>
           <h2 class="heading-secondary jump-text no-cursor">{{ $t('resume.experienceTitle') }}</h2>
-          <div class="timeline">
-            <div class="tl-item" data-slide-item v-for="(x, i) in experience" :key="i">
+          <div class="timeline grid-container">
+            <div class="grid-col" data-slide-item v-for="(x, i) in experience" :key="i">
               <div class="year no-cursor">{{ x.year }}</div>
               <div class="text no-cursor">
                 <h3 class="no-cursor">{{ $t(x.titleKey) }}</h3>
@@ -90,12 +107,12 @@
         </div>
       </section>
 
-      <!-- PANEL 4 -->
+      <!-- PANEL 4: EDUCATION - 2 COLUMNS -->
       <section class="panel" data-panel>
         <div class="card card-education" data-slide-in>
           <h2 class="heading-secondary jump-text no-cursor">{{ $t('resume.educationTitle') }}</h2>
-          <div class="timeline">
-            <div class="tl-item" data-slide-item v-for="(x, i) in education" :key="i">
+          <div class="timeline grid-container">
+            <div class="grid-col" data-slide-item v-for="(x, i) in education" :key="i">
               <div class="year">{{ x.year }}</div>
               <div class="text">
                 <h3 class="no-cursor">{{ $t(x.titleKey) }}</h3>
@@ -123,7 +140,9 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useSounds } from '@/composables/useSounds'
 
-const { playRisingSlide, resetRisingSound } = useSounds()
+const { playRisingSlide, resetRisingSound, playClick } = useSounds()
+
+const playClickSound = () => playClick()
 
 // Static skill lists
 const expertise = ref([
@@ -234,6 +253,17 @@ $gold: #d4af37;
 $black: #0a0a0a;
 $white: #fff;
 
+// ==============================================
+// ✅ FULL RESPONSIVE BREAKPOINTS (ALL DEVICES)
+// ==============================================
+$breakpoint-phone: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1024px;
+$breakpoint-desktop: 1440px;
+$breakpoint-tv-2k: 1920px;
+$breakpoint-tv-4k: 3840px;
+$breakpoint-tv-8k: 7680px;
+
 /* CORE */
 .resume-fullpage {
   position: relative;
@@ -283,8 +313,9 @@ $white: #fff;
   text-align: center;
 }
 
-/* EXPERIENCE PANEL — CENTERED EXACTLY LIKE PROFILE */
-.panel:nth-child(3) {
+/* EXPERIENCE + EDUCATION PANELS — CENTERED */
+.panel:nth-child(3),
+.panel:nth-child(4) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -316,19 +347,19 @@ $white: #fff;
   top: 10%;
   right: 7%;
 }
-/* ✅ CENTERED — NO ABSOLUTE, NO OVERFLOW */
 .card-experience {
   position: relative;
   width: 90%;
-  max-width: 650px;
+  max-width: 1000px;
   max-height: 80vh;
   overflow-y: auto;
 }
 .card-education {
-  bottom: 10%;
-  left: 7%;
-  width: 520px;
-  max-width: 85%;
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 .card-extra {
   bottom: 10%;
@@ -338,18 +369,38 @@ $white: #fff;
 }
 
 /* Scrollbar */
-.card-experience::-webkit-scrollbar {
+.card-experience::-webkit-scrollbar,
+.card-education::-webkit-scrollbar {
   width: 5px;
 }
-.card-experience::-webkit-scrollbar-thumb {
+.card-experience::-webkit-scrollbar-thumb,
+.card-education::-webkit-scrollbar-thumb {
   background: $red;
   border-radius: 10px;
   :global(.dark-mode) & {
     background: $gold;
   }
 }
-.card-experience::-webkit-scrollbar-track {
+.card-experience::-webkit-scrollbar-track,
+.card-education::-webkit-scrollbar-track {
   background: transparent;
+}
+
+// ==============================================
+// ✅ 2-COLUMN LAYOUT FOR EXPERIENCE + EDUCATION
+// ==============================================
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem 2.5rem;
+
+  @media (min-width: $breakpoint-laptop) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.grid-col {
+  display: flex;
+  gap: 1.4rem;
 }
 
 /* SLIDE ANIMATION */
@@ -372,14 +423,13 @@ $white: #fff;
   height: 250px;
   border-radius: 50%;
 
-  /* This creates the animated glowing border container */
   position: relative;
   background: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  /* 🔴 ROTATING GLOWING ANIMATION BORDER */
+  /* GLOWING ANIMATED BORDER */
   &::before {
     content: '';
     position: absolute;
@@ -426,6 +476,13 @@ $white: #fff;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
   }
 }
 .heading-secondary {
@@ -518,7 +575,6 @@ $white: #fff;
   animation: tremble 0.9s infinite alternate ease-in-out;
 }
 
-/* ROTATION ANIMATION */
 @keyframes rotate-glow {
   0% {
     transform: rotate(0deg);
@@ -527,7 +583,6 @@ $white: #fff;
     transform: rotate(360deg);
   }
 }
-
 @keyframes jump {
   0% {
     transform: translateY(0);
@@ -548,7 +603,71 @@ $white: #fff;
   }
 }
 
-/* MOBILE */
+/* ==============================================
+   FULL RESPONSIVE MEDIA QUERIES (ALL DEVICES)
+   ============================================== */
+@media (max-width: $breakpoint-phone) {
+  .avatar {
+    width: 200px;
+    height: 200px;
+  }
+  .avatar img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-laptop) {
+  .card-experience,
+  .card-education {
+    max-width: 700px;
+  }
+}
+
+@media (min-width: $breakpoint-laptop) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .card-experience,
+  .card-education {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: $breakpoint-tv-2k) {
+  .heading-primary {
+    font-size: 3.2rem;
+  }
+  .heading-secondary {
+    font-size: 2.2rem;
+  }
+}
+
+@media (min-width: $breakpoint-tv-4k) {
+  .heading-primary {
+    font-size: 4.2rem;
+  }
+  .heading-secondary {
+    font-size: 3rem;
+  }
+  .card {
+    padding: 4rem;
+  }
+}
+
+@media (min-width: $breakpoint-tv-8k) {
+  .heading-primary {
+    font-size: 6rem;
+  }
+  .heading-secondary {
+    font-size: 4.5rem;
+  }
+}
+
+/* MOBILE STACK LAYOUT */
 @media (max-width: 900px) {
   .panel {
     display: flex !important;
@@ -563,6 +682,42 @@ $white: #fff;
     transform: none !important;
     margin: 1rem auto;
     width: 100%;
+  }
+  .grid-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* DOWNLOAD CV BUTTON */
+.download-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.6rem 0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba($red, 0.1);
+  color: $red;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  :global(.dark-mode) & {
+    background: rgba($gold, 0.15);
+    color: $gold;
+  }
+
+  img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    background: rgba($red, 0.18);
   }
 }
 </style>
