@@ -132,10 +132,13 @@ onMounted(() => {
   check()
 })
 
-// ✅ BLOCK ALL VERTICAL SCROLLING ON THIS PAGE
+// ✅ BLOCK SCROLL ONLY ON DESKTOP (≥768px), ALLOW ON MOBILE
 onMounted(() => {
-  document.body.style.overflowY = 'hidden'
-  document.documentElement.style.overflowY = 'hidden'
+  const isDesktop = window.innerWidth >= 768
+  if (isDesktop) {
+    document.body.style.overflowY = 'hidden'
+    document.documentElement.style.overflowY = 'hidden'
+  }
 })
 
 // ✅ RESTORE SCROLL WHEN LEAVING PAGE
@@ -177,16 +180,11 @@ $breakpoint-tablet: 768px;
 $breakpoint-laptop: 1024px;
 $breakpoint-desktop: 1440px;
 
-// ✅ FINAL FIX: NO SCROLL, NO OVERFLOW
+// ✅ MAIN SECTION: fixed on desktop, normal on mobile
 .contact-section {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   background: $white;
-  overflow: hidden !important;
   padding: 2rem 1.5rem;
   box-sizing: border-box;
   display: flex;
@@ -196,6 +194,19 @@ $breakpoint-desktop: 1440px;
 
   :global(.dark-mode) & {
     background: $china-black;
+  }
+}
+
+// ✅ LOCK TO SCREEN ONLY ON DESKTOP/TABLET
+@media (min-width: $breakpoint-tablet) {
+  .contact-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden !important;
   }
 }
 

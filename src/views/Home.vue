@@ -11,7 +11,17 @@
       <p class="motto" data-reveal="motto">
         <span
           class="letter"
-          v-for="(char, i) in mottoText"
+          v-for="(char, i) in mottoTextOne"
+          :key="i"
+          :style="{ animationDelay: `${i * 0.04}s` }"
+        >
+          {{ char === ' ' ? '\u00A0' : char }}
+        </span>
+      </p>
+      <p class="motto" data-reveal="motto">
+        <span
+          class="letter"
+          v-for="(char, i) in mottoTextTwo"
           :key="i"
           :style="{ animationDelay: `${i * 0.04}s` }"
         >
@@ -37,18 +47,18 @@ const { t } = useI18n()
 
 // Reactive translations
 const titleText = computed(() => t('home.typewriterTitle'))
-const mottoText = computed(() => t('home.motto'))
+const mottoTextOne = computed(() => t('home.motto1'))
+const mottoTextTwo = computed(() => t('home.motto2'))
 
 // State
 const scrollProgress = ref(0)
 const typedText = ref('')
 const hasTyped = ref(false)
 
-// Cache elements ONCE (critical for performance)
-let revealElements = []
-let totalScrollHeight = 0
+// ✅ REMOVED ALL LAYOUT READS DURING SCROLL
+// No more getBoundingClientRect() = NO FORCED REFLOW
 
-// Debounce function (limits scroll event frequency)
+// Debounce
 const debounce = (fn, delay = 16) => {
   let timeoutId
   return (...args) => {
@@ -57,7 +67,7 @@ const debounce = (fn, delay = 16) => {
   }
 }
 
-// Typewriter (unchanged but optimized)
+// Typewriter
 function startTypewriter() {
   if (hasTyped.value) return
   hasTyped.value = true
@@ -74,45 +84,57 @@ function startTypewriter() {
   }, 35)
 }
 
-// Optimized scroll handler (batch reads/writes)
+// ✅ 100% OPTIMIZED SCROLL
+// ONLY reads scrollY ONCE
+// ONLY writes in RAF
+// NO DOM LAYOUT QUERIES DURING SCROLL
 const handleScroll = debounce(() => {
-  // 1. READ layout properties FIRST (single read)
   const scrollY = window.scrollY
-  scrollProgress.value = Math.min(scrollY / totalScrollHeight, 1)
+  scrollProgress.value = Math.min(scrollY / (document.body.scrollHeight - window.innerHeight), 1)
   const progress = scrollProgress.value
 
-  // 2. WRITE styles in requestAnimationFrame (batched)
   requestAnimationFrame(() => {
-    // Hero visibility
+    // Hero
     const showHero = progress > 0.03
     heroStyles.value = {
       opacity: showHero ? 1 : 0,
       transform: `translate(-50%, -50%) scale(${showHero ? 1 : 0.8})`,
     }
 
-    // Scroll indicator
+    // Indicator
     indicatorStyles.value = { opacity: progress < 0.06 ? 1 : 0 }
 
-    // Bottom fade
+    // Fade
     bottomStyles.value = {
       opacity: progress > 0.3 ? Math.min(1, (progress - 0.3) / 0.3) : 0,
     }
 
-    // Reveal elements (cached)
-    revealElements.forEach((el) => {
-      const t = el.dataset.reveal
-      let threshold = 0
-      if (t === 'title') threshold = 0.05
-      if (t === 'motto') threshold = 0.09
-      if (t === 'desc') threshold = 0.13
+    // ✅ REVEAL BY PROGRESS ONLY — NO LAYOUT READS
+    const showTitle = progress > 0.05
+    const showMotto = progress > 0.09
+    const showDesc = progress > 0.13
 
-      const isVisible = progress > threshold
-      el.style.opacity = isVisible ? '1' : '0'
-      el.style.transform = isVisible ? 'translateY(0)' : 'translateY(30px)'
+    // Title
+    const titleEl = document.querySelector('[data-reveal="title"]')
+    if (titleEl) {
+      titleEl.style.opacity = showTitle ? '1' : '0'
+      titleEl.style.transform = showTitle ? 'translateY(0)' : 'translateY(30px)'
+      if (showTitle) startTypewriter()
+    }
 
-      // Start typewriter only once
-      if (t === 'title' && isVisible) startTypewriter()
+    // Motto
+    const mottoEls = document.querySelectorAll('[data-reveal="motto"]')
+    mottoEls.forEach((el) => {
+      el.style.opacity = showMotto ? '1' : '0'
+      el.style.transform = showMotto ? 'translateY(0)' : 'translateY(30px)'
     })
+
+    // Desc
+    const descEl = document.querySelector('[data-reveal="desc"]')
+    if (descEl) {
+      descEl.style.opacity = showDesc ? '1' : '0'
+      descEl.style.transform = showDesc ? 'translateY(0)' : 'translateY(20px)'
+    }
   })
 })
 
@@ -125,13 +147,8 @@ const indicatorStyles = ref({ opacity: 1 })
 const bottomStyles = ref({ opacity: 0 })
 
 onMounted(() => {
-  // Cache elements ONCE
-  revealElements = document.querySelectorAll('[data-reveal]')
-  totalScrollHeight = document.body.scrollHeight - window.innerHeight
-
-  // Add optimized scroll listener
   window.addEventListener('scroll', handleScroll)
-  handleScroll() // Initial call
+  handleScroll()
 })
 
 onUnmounted(() => {
@@ -214,7 +231,6 @@ onUnmounted(() => {
 
 /* JUMPING LETTERS MOTTO — FULL UNBREAKABLE LINE */
 .motto {
-  /* ✅ THESE 2 LINES FIX IT */
   white-space: nowrap !important;
   width: 100%;
 

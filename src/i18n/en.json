@@ -8,7 +8,8 @@
   },
   "home": {
     "typewriterTitle": "Hi, I'm Kevin\nA Full-Stack Developer",
-    "motto": "Where history meets the future. Together let's dream big",
+    "motto1": "Where history meets the future.",
+    "motto2": "Together let's dream big",
     "description": "Building clean, modern, and scalable web experiences.",
     "ctaButton": "View My Work"
   },
